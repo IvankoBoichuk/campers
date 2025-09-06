@@ -1,6 +1,7 @@
-const NotFoundPage = () => <section className="">
+const NotFoundPage = () => (
+  <section className="">
     <img src="/offer-bg.jpg" alt="" />
-
-</section>
+  </section>
+);
 
 export default NotFoundPage;

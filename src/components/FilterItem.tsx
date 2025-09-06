@@ -5,18 +5,25 @@ type Option = { id: string | number; name: string; icon?: string };
 
 type Props = {
   label: string;
-  name: string;                // ключ у Formik
+  name: string; // ключ у Formik
   options: Option[];
   className?: string;
-  multiple?: boolean;          // <-- multi-select
+  multiple?: boolean; // <-- multi-select
 };
 
-const FilterItem = ({ label, name, options = [], className = "", multiple = false }: Props) => {
+const FilterItem = ({
+  label,
+  name,
+  options = [],
+  className = "",
+  multiple = false,
+}: Props) => {
   // Для multiple очікуємо масив значень, для single — скаляр
   const [field, , helpers] = useField(name);
   const value = field.value ?? (multiple ? [] : "");
-  
-  const isChecked = (id: Option["id"]) => multiple ? (value as Array<Option["id"]>)?.includes(id) : value === id
+
+  const isChecked = (id: Option["id"]) =>
+    multiple ? (value as Array<Option["id"]>)?.includes(id) : value === id;
 
   const toggle = (id: Option["id"]) => {
     if (!multiple) {
@@ -24,7 +31,9 @@ const FilterItem = ({ label, name, options = [], className = "", multiple = fals
       return;
     }
     const arr = Array.isArray(value) ? value : [];
-    helpers.setValue(arr.includes(id) ? arr.filter(v => v !== id) : [...arr, id]);
+    helpers.setValue(
+      arr.includes(id) ? arr.filter((v) => v !== id) : [...arr, id],
+    );
   };
 
   return (
@@ -44,10 +53,15 @@ const FilterItem = ({ label, name, options = [], className = "", multiple = fals
                 key={el.id}
                 className={[
                   "aspect-[112/96] flex flex-col items-center justify-center gap-2 rounded-[12px] text-center font-medium leading-6 border",
-                  active ? "border-theme-btn ring-1 ring-theme-btn" : "border-theme-gray-light",
+                  active
+                    ? "border-theme-btn ring-1 ring-theme-btn"
+                    : "border-theme-gray-light",
                 ].join(" ")}
               >
-                <label htmlFor={id} className="cursor-pointer flex flex-col items-center px-2">
+                <label
+                  htmlFor={id}
+                  className="cursor-pointer flex flex-col items-center px-2"
+                >
                   {el.icon && <Icon name={el.icon} size={32} />}
                   <input
                     id={id}

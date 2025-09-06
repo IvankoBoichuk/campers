@@ -14,7 +14,11 @@ type Props = {
   className?: string;
 } & Omit<LightGalleryProps, "children">;
 
-export default function Gallery({ images = [], className = "", ...rest }: Props) {
+export default function Gallery({
+  images = [],
+  className = "",
+  ...rest
+}: Props) {
   return (
     <LightGallery
       speed={500}
@@ -22,7 +26,7 @@ export default function Gallery({ images = [], className = "", ...rest }: Props)
       elementClassNames={className}
       {...rest}
     >
-      {images.map(el => (
+      {images.map((el) => (
         <a key={el.original} href={el.original}>
           <img
             src={el.thumb}

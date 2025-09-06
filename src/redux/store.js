@@ -1,7 +1,7 @@
-import { configureStore } from '@reduxjs/toolkit'
-import { campersReducer } from './campers/campersSlice'
-import { filtersReducer } from './filter/filterSlice'
-import { wishlistReducer } from './wishlist/wishlistSlice'
+import { configureStore } from "@reduxjs/toolkit";
+import { campersReducer } from "./campers/campersSlice";
+import { filtersReducer } from "./filter/filterSlice";
+import { wishlistReducer } from "./wishlist/wishlistSlice";
 
 export const store = configureStore({
   reducer: {
@@ -9,4 +9,4 @@ export const store = configureStore({
     filters: filtersReducer,
     wishlist: wishlistReducer,
   },
-})
+});

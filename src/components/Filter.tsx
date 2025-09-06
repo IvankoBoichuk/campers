@@ -1,7 +1,11 @@
 import { useSelector } from "react-redux";
 import { Formik, Form } from "formik";
 import { useDispatch } from "react-redux";
-import { changeFilter, selectFilters, type FiltersState } from "@/redux/filter/filterSlice";
+import {
+  changeFilter,
+  selectFilters,
+  type FiltersState,
+} from "@/redux/filter/filterSlice";
 import FilterLocation from "@/components/FilterLocation";
 import FilterItem from "./FilterItem";
 
@@ -12,16 +16,18 @@ const Filter = () => {
   return (
     <aside className="flex-none w-[360px]">
       <Formik
-        initialValues={{
-          location: null,
-          form: null,
-          equipment: []
-        } as FiltersState}
+        initialValues={
+          {
+            location: null,
+            form: null,
+            equipment: [],
+          } as FiltersState
+        }
         onSubmit={async (values, { setSubmitting }) => {
           try {
             dispatch(changeFilter(values));
             console.log("Filters applied:", values);
-            
+
             // тут можна диспатчити застосування фільтрів або робити API call
           } finally {
             setSubmitting(false);
@@ -32,7 +38,9 @@ const Filter = () => {
           <Form>
             {filters?.location && <FilterLocation className="mb-10" />}
 
-            <span className="text-theme-text font-medium mb-8 block">Filters</span>
+            <span className="text-theme-text font-medium mb-8 block">
+              Filters
+            </span>
 
             {filters?.equipment && (
               <FilterItem
@@ -48,9 +56,10 @@ const Filter = () => {
               <FilterItem
                 label="Vehicle type"
                 name="form"
-                options={filters.form.map(option => ({
+                options={filters.form.map((option) => ({
                   ...option,
-                  icon: typeof option.icon === "string" ? option.icon : undefined
+                  icon:
+                    typeof option.icon === "string" ? option.icon : undefined,
                 }))}
               />
             )}

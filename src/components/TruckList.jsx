@@ -1,6 +1,9 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSelector } from "react-redux";
-import { selectFilteredCampers, selectFiltersState } from "@/redux/filter/filterSlice";
+import {
+  selectFilteredCampers,
+  selectFiltersState,
+} from "@/redux/filter/filterSlice";
 import TruckCard from "./TruckCard";
 import { selectLoading } from "@/redux/campers/campersSlice";
 import Loader from "./Loader";
@@ -22,7 +25,11 @@ const TruckList = () => {
   const hasMore = visible < trucks.length;
 
   if (isLoading) {
-    return <div className="relative w-full"><Loader title={false} /></div>;
+    return (
+      <div className="relative w-full">
+        <Loader title={false} />
+      </div>
+    );
   }
 
   if (!trucks?.length) {
