@@ -1,9 +1,11 @@
+import { Toaster } from "@/components/ui/sonner"
 import Header from "../components/Header";
 import { Outlet } from "react-router-dom";
 
-const Base = () => <>
+const Base = ({className}) => <>
     <Header />
-    <main className="flex-1">
+    <Toaster />
+    <main className={className}>
         <Outlet />
     </main>
 </>

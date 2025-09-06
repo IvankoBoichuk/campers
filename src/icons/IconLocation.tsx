@@ -1,0 +1,16 @@
+const IconLocation = (props:React.SVGAttributes<SVGSVGElement>) => (
+    <svg
+        width={20}
+        height={20}
+        viewBox="0 0 20 20"
+        xmlns="http://www.w3.org/2000/svg"
+        {...props}
+    >
+        <path
+            fillRule="evenodd"
+            clipRule="evenodd"
+            d="M19.771.141A.62.62 0 0 1 20 .625v17.5a.625.625 0 0 1-.503.612l-6.25 1.25a.6.6 0 0 1-.245 0l-6.127-1.225-6.127 1.225A.625.625 0 0 1 0 19.375v-17.5a.625.625 0 0 1 .502-.613l6.25-1.25a.6.6 0 0 1 .245 0l6.128 1.225L19.253.012a.63.63 0 0 1 .518.129M12.5 2.387l-5-1v16.225l5 1zm1.25 16.225 5-1V1.387l-5 1zm-7.5-1V1.387l-5 1v16.225z"
+        />
+    </svg>
+);
+export default IconLocation;
